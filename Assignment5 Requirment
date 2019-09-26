@@ -1,0 +1,29 @@
+Part 1: Make a simple blockchain (30 pts)
+Before now, we have using block elements, but not linking them in a blockchain. Using your block.h code, generate a blockchain of 100 elements stored in an array.
+
+Every blockchain has a genesis block, which block that starts the whole thing off. Set the genesis block in the 0 element of your array with the previous hash, nonce, and id to 0, and the current hash value of whatever the previous hash value concatenated with the nonce (you should already have this function), and the timestamp should be the current time. Below is an example of the time getting set.
+
+#include <ctime>
+
+int main()
+{
+       std::time_t t = std::time(0);
+}
+
+After you set the genesis block, use a for-loop to build the next 99 blocks, where the nonce is a randomly generated number and the previous hash is the current hash from the previous block in the array. For example, curr_hash of element 1 in the array is the previous hash of the element 2. Your block id should be the same as the array position.
+
+Part 2: Add a mining method to your block class (30 pts)
+In many blockchain based cryptocurrencies mining is required before a block can be added to the chain. In the case of most cryptocurrencies the mining criteria is based on bitcoin’s difficulty mining criteria. The difficulty is the number of leading zeros in the hash you generate before a block is mined. So if the difficulty is 4 your hash function made up of the returned hash of concatenation of your nonce and previous hash needs to lead with 4 zeros before a block can be added to the chain. In the cases of mining your nonce is what is called your proof of work, basically which value that can be used to show you generated that block or in the case of bitcoin you earned the coin. In other words, if the difficulty 4 is used, the nonce and previous hash value that gives you the returning hash of that looks like 00001234 would be acceptable, but so would 00005678, etc. There is no one nonce that would earn you coin, in bitcoin mining there is a race to find one of the correct nonces first.
+
+For this section, add a mining method that takes a difficulty integer parameter and returns the nonce that solves the difficulty of the problem. An easy mining technique is to start the nonce at 0, calculate the hash, see if the first n digits are zeros (where n is the difficulty, you might need to convert the hash to string if it isn’t already), if so, return the nonce and use that value to set the hash, else iterate the nonce by 1.
+
+Now use your mining method to calculate the nonce instead of a random number. I suggest you play around with the difficulty before you move on to see how big the difficulty is before you start noticing a lag in calculations. However, when you turn in the code, don’t have the difficult set higher than 3, because it will make grading slower for me.
+
+Part 3: Put the array in a binary tree (20 pts)
+Using either an array or linked-list structure, skipping the genesis block put your blockchain into a binary tree where the branching function is based on the nonce.
+
+Part 4: Print out the elements using traversal algorithms (20 pts)
+Print out the order of the elements in the format of id:nonce:hash using a depth-first traversal algorithm (doesn’t matter which one), then a breadth-first traversal algorithm.
+
+What to submit
+Submit your .cpp and .h source files.
