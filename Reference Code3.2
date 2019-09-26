@@ -1,0 +1,19 @@
+// Main.cpp
+
+#include <iostream>
+#include "linkedList.h"
+
+int main(int argc, char** argv)
+{
+	LinkedList<double>* linkedList = new LinkedList<double>();
+	linkedList->add(12.5); // base case
+	linkedList->add(30.0); // increment cases
+	linkedList->add(3.0);
+
+	Node<double>* node1 = linkedList->search(30.0);
+	Node<double>* node2 = linkedList->search(-50.0);
+
+	linkedList->deletion(3.0);
+
+	return 0;
+}
