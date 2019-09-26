@@ -1,0 +1,13 @@
+Learning objectives:
+
+Build more complex data structures
+
+Get a better understanding of queues
+
+Using mainQueue.cpp and queueCIS269.h as a template, build up your program for each of the parts. Bring in your block.h code to define the type. You may make changes to mainQueue.cpp that does not affect the main outcomes.
+
+Part 1: (50 pts) Make constructors and deconstructors for queue
+
+Part 2: (25 pts) Generate enqueue and peakFront methods to complete
+
+Part 3: (25 pts) Generate dequeuer, isFull, and isEmpty methods
