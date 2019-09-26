@@ -1,0 +1,31 @@
+Assignment 2 - Abstract Data Types - Due11:59 PM
+Learning Objects:
+
+Allocate dynamic memory
+Requirements:
+
+Part 1 Static Memory Allocation (60 pts)
+
+Make class that includes the properties:
+private long id;
+private char* hash;
+private char* previousHash;
+private long nonce;
+private long timeId;
+
+Methods:
+3 constructors (empty, all properties,  a constructor that takes in id, previousHash, nonce, and timeID and generates the hash using a function)
+public getters and setters for all the properties
+generate hash (example in class, take the previousHash value and concatenate with nonce to get hash value) 
+
+The driver should make a static array containing 5 or more static blocks.
+
+Part 2 Dynamic Memory Allocation (25 pts)
+
+Modify your code so you dynamically allocate memory for the block data type array of 5 elements.
+
+Part 3 Pointer Adjustment (15 pts)
+
+Create a new dynamic array of 6 elements and move the pointer to the new array and add a block type class to the last element of the new array. 
+
+Hash function man file: https://en.cppreference.com/w/cpp/utility/hash
