@@ -1,0 +1,126 @@
+// linkedList.h
+
+#pragma once
+
+template <typename T>
+class Node
+{
+private:
+
+public:
+
+	T data;
+	Node* next;
+
+	Node()
+	{
+		this->data = 0;
+		this->next = NULL;
+	};
+	Node(T data, Node* next);
+};
+
+template <typename T>
+Node<T>::Node(T data, Node* next)
+{
+	this->data = data;
+	this->next = next;
+}
+
+template <typename T>
+class LinkedList
+{
+private:
+	Node<T>* head;
+	Node<T>* tail;
+	size_t numOfNode;
+
+public:
+	LinkedList();
+	void add(T data);
+	void deletion(T data);
+	Node<T>* search(T data);
+};
+
+template <typename T>
+LinkedList<T>::LinkedList()
+{
+	head = NULL;
+	tail = NULL;
+	numOfNode = 0;
+}
+
+template <typename T>
+void LinkedList<T>::add(T data)
+{
+	Node<T>* node = new Node<T>(data, NULL);
+	if (head == NULL)
+	{
+		
+		head = node;
+		tail = node;
+		numOfNode++;
+	}
+	else
+	{
+		tail->next = node;
+		tail = node;
+		numOfNode++;
+	}
+}
+
+template <typename T>
+Node<T>* LinkedList<T>::search(T data)
+{
+	Node<T>* retNode = NULL;
+
+	for (Node<T>* node = head; retNode == NULL; node = node->next)
+	{
+		if (node == NULL)
+		{
+			break;
+		}
+		if (node->data == data)
+		{
+			retNode = node;
+		}
+	}
+
+	return retNode;
+}
+
+template <typename T>
+void LinkedList<T>::deletion(T data)
+{
+	Node<T>* tmp = new Node<T>();
+	// examine head
+
+	tmp = head;
+	if (head->data == data)
+	{
+		head = head->next;
+		delete tmp;
+	}
+	else
+	{
+		while (tmp->next->next != NULL)
+		{
+			if (tmp->next->data == data)
+			{
+				Node<T>* killNode = tmp->next;
+				tmp->next = tmp->next->next;
+				delete killNode;
+				break;
+			}
+			tmp = tmp->next;
+		}
+	}
+	if (tmp->next == tail)
+	{
+		tail = tmp;
+		delete tmp->next;
+		tmp->next = NULL;
+		
+	}
+
+}
