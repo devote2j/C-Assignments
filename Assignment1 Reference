@@ -1,0 +1,42 @@
+#include <iostream>
+#include <functional>
+#include <string>
+
+using namespace std;
+
+const int arrayLen = 5;
+
+int main()
+{
+string stringVal = "Hello World";
+cout<<stringVal<<endl;
+hash< string > ptrHash;
+size_t hashVal = ptrHash(stringVal);
+cout<<hashVal<<endl;
+int a = 10; // static variable
+int intArray[15]; // static variable
+int* dyIntArray = new int[a];
+
+int *p;
+int q = 5;
+p = &q;
+a = *p;
+
+//int intArray2[arrayLen] = {100, 200, 300, 400, 500};
+//for(int ii = 0; ii < arrayLen; ii++)
+//{
+// cout << (intArray2 + ii * sizeof(int)) << endl;
+// cout << intArray2[ii] << endl;
+// cout << (int)*(intArray2 + ii) << endl;
+//}
+
+//int inputValue = 0;
+//cout << "Please, enter a number for the array size:" << endl;
+//cin >> inputValue;
+//int *dyArray2;
+//dyArray2 = new int[inputValue];
+
+//delete [] dyArray2;
+
+return 0;
+}
