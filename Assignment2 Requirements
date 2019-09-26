@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <string>
+
+#define ARRAY_LENGTH 5
+
+using namespace std;
+
+class Block
+{
+private:
+long id;
+string hash;
+string previousHash;
+long nonce;
+long timeId;
+
+public:
+Block()
+{
+id = 0;
+hash = "";
+previousHash = "";
+nonce = 0;
+timeId = 0;
+}
+
+Block(long, string, string, long, long);
+~Block(){};
+
+};
+
+Block::Block(long id, string hash, string previousHash, long nonce, long timeId)
+{
+this->id = id;
+this->hash = hash;
+this->previousHash = previousHash;
+this->nonce = nonce;
+this->timeId = timeId;
+
+}
+
+int main()
+{
+//Block *block = new Block();
+
+Block blockArray[ARRAY_LENGTH];
+blockArray[0] = Block(0,"abcde","0",10101,0);
+
+//delete block;
+}
