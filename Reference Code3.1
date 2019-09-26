@@ -1,0 +1,35 @@
+#ifndef LIST_HPP
+#define LIST_HPP
+
+// Node definition
+
+class BlockNode
+{
+public:
+int info;
+BlockNode *next;
+
+BlockNode()
+{
+next = 0;
+}
+
+BlockNode(int info1, BlockNode* next1)
+{
+info = info1;
+next = next1;
+}
+};
+
+// List
+class BlockList
+{
+public:
+BlockNode *head;
+long counter;
+
+// methods
+void add(int info);
+void delete(int infoVal);
+BlockList();
+}
